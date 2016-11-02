@@ -1,6 +1,7 @@
 package jp.suesan.test;
 
 import jp.suesan.enums.BrowserEnum;
+import org.junit.Assume;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
@@ -38,13 +39,20 @@ public class ToolTest extends TestBase {
     }
 
     /**
-     * testScenario2 for Chrome
-     * TODO
+     * testScenario1 for IE
+     * @throws InterruptedException
+     * @throws IOException
      */
     @Test
-    public void testScenario2ForChrome() {
-        WebDriver driver = getDriver(BrowserEnum.chrome);
-        TestScenario.testScenario2(driver);
+    public void testScenario1ForIE() throws InterruptedException, IOException {
+        if (System.getProperty("os.name").toLowerCase().startsWith("windows")) {
+            // TODO skipってこれでいいのか？@ignoreを拡張したほうがいいのか
+
+            WebDriver driver = getDriver(BrowserEnum.internetexplorer);
+            TestScenario.testScenario1(driver);
+        } else {
+            Assume.assumeTrue(false);
+        }
     }
 
 }

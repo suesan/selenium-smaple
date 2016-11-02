@@ -71,4 +71,4 @@ hs_err_pid*
 
 # selenium
 screenshots/*/*.png
-
+report.json

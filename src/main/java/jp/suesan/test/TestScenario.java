@@ -29,8 +29,12 @@ public class TestScenario {
         String screenshotName = ScreenShotUtils.createFileName(PlatformUtils.getBrowserName(driver),
                 Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        // get screen  captured
+        // get screen captured
         ScreenShotUtils.scrollCapture(driver, screenshotName);
+
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
     public static void testScenario2(WebDriver driver) {
